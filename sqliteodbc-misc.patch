@@ -1,0 +1,67 @@
+diff -Nurb sqliteodbc-0.64.orig/configure.in sqliteodbc-0.64.new/configure.in
+--- sqliteodbc-0.64.orig/configure.in	2004-07-08 09:30:56.000000000 +0200
++++ sqliteodbc-0.64.new/configure.in	2005-02-16 20:46:30.240025840 +0100
+@@ -78,7 +78,7 @@
+    AC_MSG_WARN(SQLite library too old, need 2.8.0 or later)
+ else
+    LIB_TARGETS="$LIB_TARGETS libsqliteodbc.la"
+-   INST_TARGETS="$INST_TARGETS install-2"
++   INST_TARGETS="$INST_TARGETS install-1 install-2"
+ fi
+ 
+ ##########
+diff -Nurb sqliteodbc-0.64.orig/Makefile.in sqliteodbc-0.64.new/Makefile.in
+--- sqliteodbc-0.64.orig/Makefile.in	2004-07-08 09:34:26.000000000 +0200
++++ sqliteodbc-0.64.new/Makefile.in	2005-02-16 20:52:25.899957312 +0100
+@@ -1,6 +1,10 @@
+ # Makefile template for SQLite ODBC Driver
+ 
+ prefix =	@prefix@
++bindir =	@bindir@
++libdir =	@libdir@
++includedir = @includedir@
++DESTDIR = 
+ CC =		@CC@
+ INSTALL =	@INSTALL@
+ LIBTOOL =	./libtool
+@@ -22,28 +26,32 @@
+ all:		@LIB_TARGETS@
+ 
+ libsqliteodbc.la:	sqliteodbc.lo
+-		$(LIBTOOL) $(CC) $(CFLAGS) -o libsqliteodbc.la \
+-		    sqliteodbc.lo -rpath $(prefix)/lib $(SQLITE_LIB) \
++		$(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o libsqliteodbc.la \
++		    sqliteodbc.lo -rpath $(DESTDIR)$(libdir) $(SQLITE_LIB) \
+ 		    $(ODBC_LIB) -release $(VER_INFO)
+ 
+ libsqlite3odbc.la:	sqlite3odbc.lo
+-		$(LIBTOOL) $(CC) $(CFLAGS) -o libsqlite3odbc.la \
+-		    sqlite3odbc.lo -rpath $(prefix)/lib $(SQLITE3_LIB) \
++		$(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o libsqlite3odbc.la \
++		    sqlite3odbc.lo -rpath $(DESTDIR)$(libdir) $(SQLITE3_LIB) \
+ 		    $(ODBC_LIB) -release $(VER_INFO)
+ 
+ sqliteodbc.lo:	sqliteodbc.c sqliteodbc.h
+-		$(LIBTOOL) $(CC) $(CFLAGS) -c -I$(SQLITE_INC) $(ODBC_FLAGS) \
++		$(LIBTOOL) --mode=compile $(CC) $(CFLAGS) -c -I$(SQLITE_INC) $(ODBC_FLAGS) \
+ 		    $(SQLITE_FLAGS) sqliteodbc.c
+ 
+ sqlite3odbc.lo:	sqlite3odbc.c sqlite3odbc.h
+-		$(LIBTOOL) $(CC) $(CFLAGS) -c -I$(SQLITE3_INC) $(ODBC_FLAGS) \
++		$(LIBTOOL) --mode=compile $(CC) $(CFLAGS) -c -I$(SQLITE3_INC) $(ODBC_FLAGS) \
+ 		    $(SQLITE3_FLAGS) sqlite3odbc.c
++install-1:
++		install -d $(DESTDIR)$(libdir)	
+ 
+ install-2:	libsqliteodbc.la
+-		$(LIBTOOL) $(INSTALL) libsqliteodbc.la $(prefix)/lib
++		$(LIBTOOL) --mode=install $(INSTALL) libsqliteodbc.la $(DESTDIR)$(libdir)
++		$(LIBTOOL) --mode=finish $(DESTDIR)$(libdir)
+ 
+ install-3:	libsqlite3odbc.la
+-		$(LIBTOOL) $(INSTALL) libsqlite3odbc.la $(prefix)/lib
++		$(LIBTOOL) --mode=install $(INSTALL) libsqlite3odbc.la $(DESTDIR)$(libdir)
++		$(LIBTOOL) --mode=finish $(DESTDIR)$(libdir)
+ 
+ install:	@INST_TARGETS@
+ 
