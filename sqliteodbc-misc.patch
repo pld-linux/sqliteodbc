@@ -31,14 +31,14 @@ diff -Nurb sqliteodbc-0.64.orig/Makefile.in sqliteodbc-0.64.new/Makefile.in
 -		$(LIBTOOL) $(CC) $(CFLAGS) -o libsqliteodbc.la \
 -		    sqliteodbc.lo -rpath $(prefix)/lib $(SQLITE_LIB) \
 +		$(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o libsqliteodbc.la \
-+		    sqliteodbc.lo -rpath $(DESTDIR)$(libdir) $(SQLITE_LIB) \
++		    sqliteodbc.lo -rpath $(libdir) $(SQLITE_LIB) \
  		    $(ODBC_LIB) -release $(VER_INFO)
  
  libsqlite3odbc.la:	sqlite3odbc.lo
 -		$(LIBTOOL) $(CC) $(CFLAGS) -o libsqlite3odbc.la \
 -		    sqlite3odbc.lo -rpath $(prefix)/lib $(SQLITE3_LIB) \
 +		$(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o libsqlite3odbc.la \
-+		    sqlite3odbc.lo -rpath $(DESTDIR)$(libdir) $(SQLITE3_LIB) \
++		    sqlite3odbc.lo -rpath $(libdir) $(SQLITE3_LIB) \
  		    $(ODBC_LIB) -release $(VER_INFO)
  
  sqliteodbc.lo:	sqliteodbc.c sqliteodbc.h
@@ -51,7 +51,7 @@ diff -Nurb sqliteodbc-0.64.orig/Makefile.in sqliteodbc-0.64.new/Makefile.in
 +		$(LIBTOOL) --mode=compile $(CC) $(CFLAGS) -c -I$(SQLITE3_INC) $(ODBC_FLAGS) \
  		    $(SQLITE3_FLAGS) sqlite3odbc.c
 +install-1:
-+		install -d $(DESTDIR)$(libdir)	
++		install -d $(DESTDIR)$(libdir)
  
  install-2:	libsqliteodbc.la
 -		$(LIBTOOL) $(INSTALL) libsqliteodbc.la $(prefix)/lib
