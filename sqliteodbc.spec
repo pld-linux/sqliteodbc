@@ -25,7 +25,7 @@ SQLite, http://www.unixodbc.org/ for a description of unixODBC.
 %description -l pl
 Sterownik ODBC dla SQLite wspó³pracuj±cy z SQLite 2.x i/lub 3.x przy
 u¿yciu unixODBC lub iODBC. Opis SQLite mo¿na znale¼æ pod adresem
-http://www.sqlite.org/, a unixODBC pod http://www.unixodbc.org/ .
+<http://www.sqlite.org/, a unixODBC pod http://www.unixodbc.org/>.
 
 %prep
 %setup -q
