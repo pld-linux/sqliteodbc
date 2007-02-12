@@ -1,5 +1,5 @@
 Summary:	ODBC driver for SQLite
-Summary(pl.UTF-8):   Sterownik ODBC dla SQLite
+Summary(pl.UTF-8):	Sterownik ODBC dla SQLite
 Name:		sqliteodbc
 Version:	0.64
 Release:	0.1
