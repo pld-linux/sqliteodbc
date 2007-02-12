@@ -1,5 +1,5 @@
 Summary:	ODBC driver for SQLite
-Summary(pl):	Sterownik ODBC dla SQLite
+Summary(pl.UTF-8):   Sterownik ODBC dla SQLite
 Name:		sqliteodbc
 Version:	0.64
 Release:	0.1
@@ -22,9 +22,9 @@ ODBC driver for SQLite interfacing SQLite 2.x and/or 3.x using
 unixODBC or iODBC. See http://www.sqlite.org/ for a description of
 SQLite, http://www.unixodbc.org/ for a description of unixODBC.
 
-%description -l pl
-Sterownik ODBC dla SQLite wspó³pracuj±cy z SQLite 2.x i/lub 3.x przy
-u¿yciu unixODBC lub iODBC. Opis SQLite mo¿na znale¼æ pod adresem
+%description -l pl.UTF-8
+Sterownik ODBC dla SQLite wspÃ³Å‚pracujÄ…cy z SQLite 2.x i/lub 3.x przy
+uÅ¼yciu unixODBC lub iODBC. Opis SQLite moÅ¼na znaleÅºÄ‡ pod adresem
 <http://www.sqlite.org/, a unixODBC pod http://www.unixodbc.org/>.
 
 %prep
