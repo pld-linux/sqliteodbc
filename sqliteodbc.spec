@@ -5,8 +5,8 @@ Version:	0.64
 Release:	0.1
 License:	BSD
 Group:		Libraries
-# Source0-md5:	f2ebdac541838e6db0e897fd98c5f34e
 Source0:	http://www.ch-werner.de/sqliteodbc/%{name}-%{version}.tar.gz
+# Source0-md5:	f2ebdac541838e6db0e897fd98c5f34e
 Patch0:		%{name}-misc.patch
 URL:		http://www.ch-werner.de/sqliteodbc/
 BuildRequires:	autoconf
