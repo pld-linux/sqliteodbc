@@ -11,12 +11,12 @@
 Summary:	ODBC driver for SQLite 2.x
 Summary(pl.UTF-8):	Sterownik ODBC dla SQLite 2.x
 Name:		sqliteodbc
-Version:	0.997
+Version:	0.9992
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://www.ch-werner.de/sqliteodbc/%{name}-%{version}.tar.gz
-# Source0-md5:	870e84ecbb297be9339399b296038aa1
+# Source0-md5:	383fee316c6f89bb63a6a4503b13b90b
 Patch0:		%{name}-misc.patch
 URL:		http://www.ch-werner.de/sqliteodbc/
 BuildRequires:	autoconf
