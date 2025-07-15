@@ -101,7 +101,7 @@ Ten pakiet zawiera sterownik SQLite 4.x dla %{ODBCvar}.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__libtoolize}
